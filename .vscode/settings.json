@@ -1,0 +1,32 @@
+{
+    "background.editor": {
+        "useFront": true,
+        "style": {
+            "background-position": "center",
+            "background-size": "cover",
+            "opacity": 0.5
+        },
+        "styles": [
+            {},
+            {},
+            {}
+        ],
+        "images": [
+            "file:///C:/Users/LENOVO/Desktop/Automation/Anna_Disney_Neon_Pink_Font_Super_Glow_Pink_Background.png"
+        ],
+        "interval": 0,
+        "random": false
+    },
+    "background.fullscreen": {
+        "images": [
+            "file:///C:/Users/LENOVO/Desktop/Automation/Anna_Disney_Neon_Pink_Font_Super_Glow_Pink_Background.png"
+        ],
+        "opacity": 0.1,
+        "size": "cover",
+        "position": "center",
+        "interval": 0,
+        "random": false
+    },
+    "background.sidebar": {},
+    "background.panel": {}
+}
