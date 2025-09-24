@@ -23,15 +23,24 @@
     <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
     <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
 
-    <!-- Search Form -->
-    <form id="searchForm" onsubmit="return searchSite()" class="w3-bar-item w3-right w3-hide-small" style="display:flex; align-items:center;">
-      <input type="text" id="searchInput" placeholder="חפש..." style="padding:4px 8px; border:none; border-radius:4px;">
-      <button type="submit" style="background:none; border:none; cursor:pointer; padding:4px;">
-        <i class="fa fa-search" style="font-size:16px;"></i>
-      </button>
-    </form>
+<!-- Search Component -->
+<div class="search-container w3-bar-item w3-right w3-hide-small" id="searchContainer">
+  <input type="text"
+         id="searchInput"
+         placeholder="חיפוש..."
+         autocomplete="off"
+         aria-label="Search">
+
+  <span id="searchCount" style="margin-left:8px;font-weight:bold;"></span>
+
+  <button onclick="toggleSearch()"
+          class="search-btn"
+          title="חיפוש"
+          aria-label="Toggle Search">
+      <i class="fa fa-search"></i>
+  </button>
   </div>
-</div>
+</div> <!-- ✅ סוגר את .search-container -->
 
   <!-- Navbar on small screens -->
   <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
@@ -44,10 +53,13 @@
 
 <!-- First Parallax Image with Background -->
 <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <div class="w3-display-middle">
-    <span class="w3-center w3-padding-large w3-black w3-xlarge w3-wide w3-animate-opacity">
-      MY WEBSITE LOGO
-    </span>
+  <!-- ✅ הוספנו את המחלקה hero-logo-container כדי לשלוט ב-top לפי מסך -->
+  <div class="w3-display-middle hero-logo-container">
+    <!-- ✅ לוגו חדש -->
+    <div class="hero-logo w3-center w3-animate-opacity">
+      <h1 class="hero-title">QAUTOMATED</h1>
+      <p class="hero-subtitle">Where QA meets full automation</p>
+    </div>
   </div>
 </div>
 
