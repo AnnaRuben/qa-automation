@@ -84,8 +84,13 @@ body {
 
 /* ===== הדגשות חיפוש ===== */
 .highlighted-search {
-  background-color: yellow;
-  font-weight: bold;
+  background-color: #ff00ff;     /* ורוד ניאון בסיסי */
+  color: #fff;                  /* טקסט לבן כדי לבלוט */
+  font-weight: bold;            /* טקסט מודגש */
+  padding: 0 3px;               /* רווח קטן */
+  border-radius: 3px;           /* פינות מעוגלות */
+  text-shadow: 0 0 6px #ff4dff, 0 0 12px #ff1aff, 0 0 24px #ff00ff; /* הילה פנימית */
+  box-shadow: 0 0 6px #ff4dff, 0 0 12px #ff1aff, 0 0 24px #ff00ff; /* הילה חיצונית */
 }
 
 /* ===== קומפוננטת חיפוש ===== */
