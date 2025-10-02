@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 
   try {
     // connect to Browserless (use your token as an env var)
-    const wsEndpoint = `wss://production-ams.browserless.io?token=${process.env.BROWSERLESS_TOKEN}`;
+    const wsEndpoint = `wss://production-ams.browserless.io/chromium/playwright?token=${process.env.BROWSERLESS_KEY}`;
     browser = await chromium.connectOverCDP(wsEndpoint);
     log += "✅ Connected to remote browser\n";
 
