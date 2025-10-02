@@ -9,7 +9,6 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
   "dependencies": {
     "node-fetch": "^3.3.2",
     "playwright-core": "^1.55.1"
