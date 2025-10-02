@@ -8,10 +8,10 @@ module.exports = async (req, res) => {
   try {
     // connect to Browserless (use your token as an env var)
     const wsEndpoint = `wss://production-ams.browserless.io/chromium/playwright?token=${process.env.BROWSERLESS_KEY}`;
-    browser = await chromium.connectOverCDP(wsEndpoint);
+    browser = await chromium.connect({ wsEndpoint });
     log += "✅ Connected to remote browser\n";
 
-    const context = browser.contexts()[0] || await browser.newContext();
+const context = await browser.newContext();
     const page = await context.newPage();
 
     // open your site with ?automation=1 to avoid recursion
