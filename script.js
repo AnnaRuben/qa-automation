@@ -315,13 +315,11 @@ function openEvidence(id) {
 const isAutomation = new URLSearchParams(location.search).get("automation") === "1";
 
 const btn = document.getElementById("runE2E");
-if (!btn) return;
-
+if (btn) {
 btn.addEventListener("click", async (e) => {
   const resultsBox = document.getElementById("e2eResults");
   if (!resultsBox) return;
-
-  if (isAutomation) {
+if (isAutomation) {
     e.preventDefault();
     resultsBox.innerHTML = `
       <p><b>Status:</b> SIMULATED</p>
@@ -344,3 +342,4 @@ btn.addEventListener("click", async (e) => {
     resultsBox.innerHTML = `<p style="color:red;">❌ Error while running the test</p>`;
   }
 });
+}
