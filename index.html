@@ -1,238 +1,442 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>W3.CSS Template</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="style.css">
+  <title>W3.CSS Template</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar" id="myNavbar">
-    <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right"
-       href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-      <i class="fa fa-bars"></i>
-    </a>
-    <a href="#home" class="w3-bar-item w3-button">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar" id="myNavbar">
+      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="#home" class="w3-bar-item w3-button">HOME</a>
+      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
+      <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
+      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
 
-<!-- Search Component -->
-<div class="search-container w3-bar-item w3-right w3-hide-small" id="searchContainer">
-  <input type="text"
-         id="searchInput"
-         placeholder="חיפוש..."
-         autocomplete="off"
-         aria-label="Search">
-
-  <span id="searchCount" style="margin-left:8px;font-weight:bold;"></span>
-
-  <button onclick="toggleSearch()"
-          class="search-btn"
-          title="חיפוש"
-          aria-label="Toggle Search">
-      <i class="fa fa-search"></i>
-  </button>
-  </div>
-</div> <!-- ✅ סוגר את .search-container -->
-
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-    <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-    <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-    <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-    <a href="#" class="w3-bar-item w3-button">SEARCH</a>
-  </div>
-</div>
-
-<!-- First Parallax Image with Background -->
-<div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
-  <!-- ✅ הוספנו את המחלקה hero-logo-container כדי לשלוט ב-top לפי מסך -->
-  <div class="w3-display-middle hero-logo-container">
-    <!-- ✅ לוגו חדש -->
-    <div class="hero-logo w3-center w3-animate-opacity">
-      <h1 class="hero-title">QAUTOMATED</h1>
-      <p class="hero-subtitle">Where QA meets full automation</p>
-    </div>
-  </div>
-</div>
-
-<!-- Container (About Section) -->
-<div class="w3-content w3-container w3-padding-64" id="about">
-  <h3 class="w3-center">ABOUT ME</h3>
-  <p class="w3-center"><em>I love photography</em></p>
-  <p>We have created a fictional "personal" website/blog, and our fictional character is a hobby photographer. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
-    qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-  <div class="w3-row">
-    <div class="w3-col m6 w3-center w3-padding-large">
-      <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
-      <img src="/w3images/avatar_hat.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
-    </div>
-
-    <!-- Hide this text on small devices -->
-    <div class="w3-col m6 w3-hide-small w3-padding-large">
-      <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-    </div>
-  </div>
-  <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
-  <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
-  </div>
-  <p class="w3-wide"><i class="fa fa-photo"></i>Photoshop</p>
-  <div class="w3-light-grey">
-    <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
-  </div>
-</div>
-
-<div class="w3-row w3-center w3-dark-grey w3-padding-16">
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">14+</span><br>
-    Partners
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">55+</span><br>
-    Projects Done
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">89+</span><br>
-    Happy Clients
-  </div>
-  <div class="w3-quarter w3-section">
-    <span class="w3-xlarge">150+</span><br>
-    Meetings
-  </div>
-</div>
-
-<!-- Second Parallax Image with Portfolio Text -->
-<div class="bgimg-2 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-    <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
-  </div>
-</div>
-
-<!-- Container (Portfolio Section) -->
-<div class="w3-content w3-container w3-padding-64" id="portfolio">
-  <h3 class="w3-center">MY WORK</h3>
-  <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>
-
-  <!-- Responsive Grid. Four columns on tablets, laptops and desktops. Will stack on mobile devices/small screens (100% width) -->
-  <div class="w3-row-padding w3-center">
-    <div class="w3-col m3">
-      <img src="/w3images/p1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean">
-    </div>
-  </div>
-
-  <div class="w3-row-padding w3-center w3-section">
-    <div class="w3-col m3">
-      <img src="/w3images/p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train">
-    </div>
-
-    <div class="w3-col m3">
-      <img src="/w3images/p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing">
-    </div>
-    <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
-  </div>
-</div>
-
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
-  </div>
-</div>
-
-<!-- Third Parallax Image with Portfolio Text -->
-<div class="bgimg-3 w3-display-container w3-opacity-min">
-  <div class="w3-display-middle">
-     <span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span>
-  </div>
-</div>
-
-<!-- Container (Contact Section) -->
-<div class="w3-content w3-container w3-padding-64" id="contact">
-  <h3 class="w3-center">WHERE I WORK</h3>
-  <p class="w3-center"><em>I'd love your feedback!</em></p>
-
-  <div class="w3-row w3-padding-32 w3-section">
-    <div class="w3-col m4 w3-container">
-      <img src="/w3images/map.jpg" class="w3-image w3-round" style="width:100%">
-    </div>
-    <div class="w3-col m8 w3-panel">
-      <div class="w3-large w3-margin-bottom">
-        <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Chicago, US<br>
-        <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br>
-        <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: mail@mail.com<br>
+      <!-- Search Component -->
+      <div class="search-container w3-bar-item w3-right w3-hide-small" id="searchContainer">
+        <input type="text" id="searchInput" placeholder="חיפוש..." autocomplete="off" aria-label="Search">
+        <span id="searchCount" style="margin-left:8px;font-weight:bold;"></span>
+        <button onclick="toggleSearch()" class="search-btn" title="חיפוש" aria-label="Toggle Search">
+          <i class="fa fa-search"></i>
+        </button>
       </div>
-      <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
-      <form action="/action_page.php" target="_blank">
-        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+    </div>
+    <!-- ✅ סוגר את .search-container -->
+
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
+      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
+      <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
+      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
+      <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+    </div>
+  </div>
+
+  <!-- First Parallax Image with Background -->
+  <div class="bgimg-1 w3-display-container w3-opacity-min" id="home">
+    <div class="w3-display-middle hero-logo-container">
+      <!-- ✅ לוגו חדש -->
+      <div class="hero-logo w3-center w3-animate-opacity">
+        <h1 class="hero-title">QAUTOMATED</h1>
+        <p class="hero-subtitle">Where QA meets full automation</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CODE PICTURE – רקע -->
+  <div id="code-picture">
+    <!-- Container (About Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="about">
+      <h3 class="w3-center">ABOUT ME</h3>
+      <p class="w3-center"><em>Every bug has a story, I’m here to uncover it</em></p>
+      <p>I’m not just a QA Automation Engineer, I’m a Code Detective, constantly interrogating systems to unveil hidden flaws.</p>
+      <p>With every test I write and every script I automate, I’m rewriting the rules of software reliability.</p>
+      <p>From frameworks and pipelines to edge cases and race conditions, I dive deep into the logic, the quirks, the oddities.</p>
+      <p>My playground is where bugs are hiding, and my mission is to push boundaries until nothing breaks.</p>
+      <p>But behind the test suites and dashboards lies a human who thrives on curiosity:</p>
+      <p>I’m passionate about turning chaos into clarity, simplifying complexity, and building trust in every line of code.</p>
+      <p>This interactive site is my canvas, a living proof that automation can be elegant, smart and personal.</p>
+      <p>Scroll with me, explore with me, and see how Quality Assurance can be creative too.</p>
+
+      <div class="w3-row">
+        <hr class="section-divider">
+
+        <!-- 🔥 QA Journey Map & Manifesto -->
+        <section id="qa-journey" class="w3-padding-64">
+          <h3 class="section-title">QA Journey & Manifesto</h3>
+
+          <!-- אפשר להשאיר כך. אם תרצי דיוק מוחלט לקו – ניתן גם להסיר w3-row-padding כאן. -->
+          <div class="w3-row-padding journey-flex">
+            <!-- QA Journey Map -->
+            <div class="w3-col m6">
+              <div class="journey-container">
+                <ul class="journey-timeline">
+                  <li>
+                    <span class="dot"></span>
+                    <div class="step">Discovery</div>
+                    <p>Understanding requirements, exploring edge cases.</p>
+                  </li>
+                  <li>
+                    <span class="dot"></span>
+                    <div class="step">Test Design</div>
+                    <p>Defining scenarios, choosing frameworks, writing clear specs.</p>
+                  </li>
+                  <li>
+                    <span class="dot"></span>
+                    <div class="step">Automation</div>
+                    <p>Building stable tests, page objects, API flows.</p>
+                  </li>
+                  <li>
+                    <span class="dot"></span>
+                    <div class="step">CI Integration</div>
+                    <p>GitHub Actions, pipelines, parallel runs.</p>
+                  </li>
+                  <li>
+                    <span class="dot"></span>
+                    <div class="step">Reporting</div>
+                    <p>Allure dashboards, flaky tracking, metrics.</p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- QA Manifesto -->
+            <div class="w3-col m6">
+              <div class="manifesto">
+                <h4>My QA Manifesto</h4>
+                <ul>
+                  <li><b>Quality First:</b> Ship with confidence, not hope.</li>
+                  <li><b>Code is Conversation:</b> Tests explain, not just verify.</li>
+                  <li><b>Automation ≠ Magic:</b> Start small, grow smart.</li>
+                  <li><b>Flaky Tests:</b> Detect, debug, delete fearlessly.</li>
+                  <li><b>Human Touch:</b> Exploratory testing stays essential.</li>
+                </ul>
+              </div>
+            </div>
           </div>
-          <div class="w3-half">
-            <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- 🔬 Automation Playground -->
+        <section id="experiment-lab" class="w3-padding-64">
+          <h3 class="section-title">Automation Playground</h3>
+
+          <!-- ✨ CHANGED: הסרתי w3-row-padding כדי לבטל padding שמרחיק שמאלה/ימינה -->
+          <div class="lab-flex">
+            <!-- Left side – user controls -->
+
+            <!-- ✨ CHANGED: הסרתי "w3-col m6" כדי לא להוסיף padding פנימי מיותר -->
+            <div class="lab-left">
+              <p>
+                <strong>Ready to break my site?</strong><br>
+                <span>Pick a test suite and watch live automation hunt for bugs.</span>
+              </p>
+
+              <!-- Test Type + Controls -->
+              <select id="labType" class="w3-select w3-margin-top">
+                <option value="smoke">💨 Smoke (Quick Sanity)</option>
+                <option value="ui">🎀 UI Beauty</option>
+                <option value="regression">🪄 Full Regression</option>
+              </select>
+
+              <!-- Run + toggles -->
+              <div class="lab-controls">
+                <label class="lab-toggle">
+                  <input type="checkbox" id="toggleFlaky" checked>
+                  <span>Simulate Flaky</span>
+                </label>
+                <label class="lab-toggle">
+                  <input type="checkbox" id="toggleTypewriter" checked>
+                  <span>Typewriter intro</span>
+                </label>
+                <button id="runLab" class="w3-button w3-camel">Run Suite</button>
+              </div>
+
+              <!-- Terminal-style console -->
+              <div id="labConsole" class="lab-console">
+                <div class="lab-typewriter" id="labTyper"></div>
+                <div id="labSteps"></div>
+              </div>
+
+              <!-- Progress + Gauge -->
+              <div id="labProgress" class="lab-progress">
+                <div id="labBar" class="lab-bar"></div>
+              </div>
+
+              <div id="labGaugeWrap" class="lab-gauge-wrap">
+                <div class="lab-gauge">
+                  <svg viewBox="0 0 200 200">
+                    <defs>
+                      <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#00f6ff" />
+                        <stop offset="50%" stop-color="#00ff7f" />
+                        <stop offset="100%" stop-color="#9d00ff" />
+                      </linearGradient>
+                      <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#00ff7f" />
+                        <stop offset="100%" stop-color="#00f6ff" />
+                      </linearGradient>
+                      <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#9d00ff" />
+                        <stop offset="100%" stop-color="#00f6ff" />
+                      </linearGradient>
+                    </defs>
+
+                    <circle class="gauge-bg-outer" cx="100" cy="100" r="90"></circle>
+                    <circle class="gauge-meter-outer" cx="100" cy="100" r="90" stroke-dasharray="0,565.48"></circle>
+
+                    <circle class="gauge-bg-middle" cx="100" cy="100" r="70"></circle>
+                    <circle class="gauge-meter-middle" cx="100" cy="100" r="70" stroke-dasharray="0,439.82"></circle>
+
+                    <circle class="gauge-bg-inner" cx="100" cy="100" r="50"></circle>
+                    <circle class="gauge-meter-inner" cx="100" cy="100" r="50" stroke-dasharray="0,314.16"></circle>
+                  </svg>
+
+                  <div id="labGaugeText" class="lab-gauge-text">75%</div>
+                </div>
+              </div>
+            </div> <!-- end .lab-left -->
+
+            <!-- ✨ CHANGED: הסרתי "w3-col m6" גם כאן -->
+            <div class="lab-right">
+              <div class="lab-cards" id="labCards"></div>
+              <pre><code class="language-js" id="labCode"> // Tests run in your browser. Suites: smoke, ui, regression. // Watch steps animate like a CI dashboard. Visual-diff card included. </code></pre>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+<section id="e2e-demo" class="w3-padding-64">
+  <h3 class="section-title">🤖 E2E Corner – Live Proof</h3>
+  <p>I’m not just talking about automation – I’m demonstrating it.  
+  Click the button and watch an E2E test run live on this form!</p>
+
+  <!-- Demo Form -->
+  <form id="demoForm" class="w3-container w3-card w3-padding" onsubmit="return false;">
+    <label>Name:</label>
+    <input type="text" id="demoName" class="w3-input w3-margin-bottom" placeholder="Enter your name">
+    <label>Email:</label>
+    <input type="email" id="demoEmail" class="w3-input w3-margin-bottom" placeholder="Enter your email">
+    <button id="runE2E" class="w3-button w3-camel">🚀 Run E2E Test</button>
+  </form>
+
+  <!-- Results Area -->
+  <div id="e2eResults" class="w3-panel w3-black w3-margin-top" style="min-height:80px;">
+    <p><i>No test has been executed yet...</i></p>
+  </div>
+</section>
+
+        <hr class="section-divider">
+
+        <!-- 🔥 Before/After + Trust Dashboard -->
+        <section id="before-after-dashboard" class="w3-padding-64">
+          <h3 class="section-title">Before / After + Trust Dashboard</h3>
+          <div class="w3-row-padding">
+            <!-- Before/After Slider -->
+            <div class="w3-col m6">
+              <div class="ba-container">
+                <img src="before.jpg" alt="Before" class="ba-img ba-before">
+                <img src="after.jpg" alt="After" class="ba-img ba-after">
+                <input type="range" min="0" max="100" value="50" class="ba-slider" id="baSlider">
+              </div>
+              <p class="ba-caption">Drag the slider to compare regression results</p>
+            </div>
+
+            <!-- Trust Dashboard -->
+            <div class="w3-col m6">
+              <div class="trust-dashboard">
+                <div class="metric">
+                  <span class="label">Test Coverage</span>
+                  <span class="value" data-target="92">0%</span>
+                </div>
+                <div class="metric">
+                  <span class="label">Build Runtime</span>
+                  <span class="value" data-target="12">0 min</span>
+                </div>
+                <div class="metric">
+                  <span class="label">MTTR</span>
+                  <span class="value" data-target="3">0 hrs</span>
+                </div>
+                <div class="metric">
+                  <span class="label">Flakiness</span>
+                  <span class="value" data-target="4">0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="w3-col m6 w3-center w3-padding-large">
+          <p><b><i class="fa fa-user w3-margin-right"></i>My Name</b></p><br>
+          <img src="/w3images/avatar_hat.jpg" class="w3-round w3-image w3-opacity w3-hover-opacity-off" alt="Photo of Me" width="500" height="333">
+        </div>
+
+        <!-- Hide this text on small devices -->
+        <div class="w3-col m6 w3-hide-small w3-padding-large">
+          <p>Welcome to my website. I am lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+      </div>
+
+      <p class="w3-large w3-center w3-padding-16">Im really good at:</p>
+      <p class="w3-wide"><i class="fa fa-camera"></i>Photography</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:90%">90%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-laptop"></i>Web Design</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:85%">85%</div>
+      </div>
+      <p class="w3-wide"><i class="fa fa-photo"></i>Photoshop</p>
+      <div class="w3-light-grey">
+        <div class="w3-container w3-padding-small w3-dark-grey w3-center" style="width:75%">75%</div>
+      </div>
+    </div> <!-- end #about -->
+
+    <!-- 🔥 Bug Case File + QA Toolbox -->
+    <section id="bug-toolbox" class="w3-padding-64">
+      <h3 class="section-title">Bug Case File + QA Toolbox</h3>
+      <div class="w3-row-padding">
+        <!-- תיק באגים -->
+        <div class="w3-col m6">
+          <div class="bug-card">
+            <h5>Timezone Gremlin</h5>
+            <p><b>Type:</b> Edge Case</p>
+            <p><b>Discovery:</b> CI run at midnight</p>
+            <p><b>Fix:</b> Normalize to UTC</p>
+            <button onclick="openEvidence('tz')">Open Evidence</button>
+          </div>
+          <div class="bug-card">
+            <h5>Phantom Click</h5>
+            <p><b>Type:</b> Race Condition</p>
+            <p><b>Discovery:</b> Exploratory Testing</p>
+            <p><b>Fix:</b> Explicit waits</p>
+            <button onclick="openEvidence('phantom')">Open Evidence</button>
           </div>
         </div>
-        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
-        <button class="w3-button w3-black w3-right w3-section" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </form>
+
+        <!-- QA Toolbox -->
+        <div class="w3-col m6">
+          <ul class="tool-grid">
+            <li data-tip="E2E Stable">Playwright</li>
+            <li data-tip="Classic">Selenium</li>
+            <li data-tip="API flows">Postman</li>
+            <li data-tip="Load tests">JMeter</li>
+            <li data-tip="Reports">Allure</li>
+            <li data-tip="CI/CD">GitHub Actions</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="w3-row w3-center w3-dark-grey w3-padding-16">
+      <div class="w3-quarter w3-section"><span class="w3-xlarge">14+</span><br> Partners </div>
+      <div class="w3-quarter w3-section"><span class="w3-xlarge">55+</span><br> Projects Done </div>
+      <div class="w3-quarter w3-section"><span class="w3-xlarge">89+</span><br> Happy Clients </div>
+      <div class="w3-quarter w3-section"><span class="w3-xlarge">150+</span><br> Meetings </div>
     </div>
+
+    <!-- Second Parallax Image with Portfolio Text -->
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle">
+        <span class="w3-xxlarge w3-text-white w3-wide">PORTFOLIO</span>
+      </div>
+    </div>
+
+    <!-- Container (Portfolio Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="portfolio">
+      <h3 class="w3-center">MY WORK</h3>
+      <p class="w3-center"><em>Here are some of my latest lorem work ipsum tipsum.<br> Click on the images to make them bigger</em></p><br>
+
+      <!-- Responsive Grid -->
+      <div class="w3-row-padding w3-center">
+        <div class="w3-col m3"><img src="/w3images/p1.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist over the mountains"></div>
+        <div class="w3-col m3"><img src="/w3images/p2.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Coffee beans"></div>
+        <div class="w3-col m3"><img src="/w3images/p3.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Bear closeup"></div>
+        <div class="w3-col m3"><img src="/w3images/p4.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Quiet ocean"></div>
+      </div>
+
+      <div class="w3-row-padding w3-center w3-section">
+        <div class="w3-col m3"><img src="/w3images/p5.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="The mist"></div>
+        <div class="w3-col m3"><img src="/w3images/p6.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="My beloved typewriter"></div>
+        <div class="w3-col m3"><img src="/w3images/p7.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Empty ghost train"></div>
+        <div class="w3-col m3"><img src="/w3images/p8.jpg" style="width:100%" onclick="onClick(this)" class="w3-hover-opacity" alt="Sailing"></div>
+        <button class="w3-button w3-padding-large w3-light-grey" style="margin-top:64px">LOAD MORE</button>
+      </div>
+    </div>
+
+    <!-- Modal for full size images on click-->
+    <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+      <span class="w3-button w3-large w3-black w3-display-topright" title="Close Modal Image"><i class="fa fa-remove"></i></span>
+      <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+        <img id="img01" class="w3-image">
+        <p id="caption" class="w3-opacity w3-large"></p>
+      </div>
+    </div>
+
+    <!-- Third Parallax Image with Portfolio Text -->
+    <div class="bgimg-3 w3-display-container w3-opacity-min">
+      <div class="w3-display-middle"><span class="w3-xxlarge w3-text-white w3-wide">CONTACT</span></div>
+    </div>
+
+    <!-- Container (Contact Section) -->
+    <div class="w3-content w3-container w3-padding-64" id="contact">
+      <h3 class="w3-center">WHERE I WORK</h3>
+      <p class="w3-center"><em>I'd love your feedback!</em></p>
+
+      <div class="w3-row w3-padding-32 w3-section">
+        <div class="w3-col m4 w3-container"><img src="/w3images/map.jpg" class="w3-image w3-round" style="width:100%"></div>
+        <div class="w3-col m8 w3-panel">
+          <div class="w3-large w3-margin-bottom">
+            <i class="fa fa-map-marker fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Chicago, US<br>
+            <i class="fa fa-phone fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Phone: +00 151515<br>
+            <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: mail@mail.com<br>
+          </div>
+          <p>Swing by for a cup of <i class="fa fa-coffee"></i>, or leave me a note:</p>
+          <form action="/action_page.php" target="_blank">
+            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+              <div class="w3-half"><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></div>
+              <div class="w3-half"><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></div>
+            </div>
+            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+            <button class="w3-button w3-black w3-right w3-section" type="submit">
+              <i class="fa fa-paper-plane"></i> SEND MESSAGE
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
+      <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+      <div class="w3-xlarge w3-section">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </div>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+    </footer>
   </div>
-</div>
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64 w3-opacity w3-hover-opacity-off">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <div class="w3-xlarge w3-section">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
-  </div>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
-
- <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
+
 </html>

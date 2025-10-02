@@ -1,33 +1,40 @@
 /* ===== בסיס כללי ===== */
-body,h1,h2,h3,h4,h5,h6 {
-  font-family: "Lato", sans-serif;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Fira Code', monospace;
 }
 
-html, body {
+html,
+body {
   min-height: 100vh;
   color: #777;
   line-height: 1.8;
-  scroll-behavior: smooth; /* גלילה חלקה */
-  margin: 0;               /* הסרת שוליים ברירת מחדל */
+  scroll-behavior: smooth;  /* גלילה חלקה */
+  margin: 0;
   padding: 0;
 }
 
 /* ===== Hero + Parallax Images ===== */
-.bgimg-1, .bgimg-2, .bgimg-3 {
+.bgimg-1,
+.bgimg-2,
+.bgimg-3 {
   background-repeat: no-repeat;
-  background-size: cover;      /* מכסה את כל השטח בלי עיוות */
-  background-position: center top; /* עוגן בחלק העליון לשמירת ראש הדמות */
-  background-attachment: fixed;    /* אפקט פרלקס בדסקטופ */
+  background-size: cover;
+  background-position: center top;
+  background-attachment: fixed; /* אפקט פרלקס בדסקטופ */
 }
 
-/* תמונת Hero ראשית */
 .bgimg-1 {
   background-image: url('my_website_logo.jpeg');
-  min-height: 100vh;   /* גובה מלא של חלון בכל גודל מסך */
+  min-height: 100vh;
   width: 100%;
 }
 
-/* תמונות נוספות */
 .bgimg-2 {
   background-image: url("/w3images/parallax2.jpg");
   min-height: 400px;
@@ -38,24 +45,26 @@ html, body {
   min-height: 400px;
 }
 
-/* ביטול פרלקס במכשירים ניידים/טאבלטים למניעת קפיצות */
-@media only screen and (max-width: 1024px) {
-  .bgimg-1, .bgimg-2, .bgimg-3 {
+/* ביטול פרלקס במסכים קטנים */
+@media (max-width: 1024px) {
+  .bgimg-1,
+  .bgimg-2,
+  .bgimg-3 {
     background-attachment: scroll;
-    background-position: center center; /* מרכז מאוזן במסכים קטנים */
+    background-position: center center;
   }
 }
 
 /* ===== ניווט ===== */
 .camel-navbar {
-  background-color: #f0d3b0 !important; /* קאמל */
-  box-shadow: 0 2px 5px rgba(0,0,0,0.7);
+  background-color: #f0d3b0 !important;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
   transition: background-color 0.3s ease;
 }
 
 .w3-bar {
   position: relative;
-  z-index: 10; /* כדי ששדה החיפוש יישב מעל הרקע */
+  z-index: 10;
 }
 
 .w3-bar .w3-button {
@@ -100,22 +109,14 @@ html, body {
   transition: background-color 0.3s ease;
 }
 
-.search-btn:hover {
-  background-color: #ddb180;
-}
+.search-btn:hover { background-color: #ddb180; }
+.search-btn i.fa-search { color: #2c2c2c; }
 
-.search-btn i.fa-search {
-  color: #2c2c2c;
-}
-
-.search-container.open .search-btn {
-  border-radius: 50%;
-}
+.search-container.open .search-btn { border-radius: 50%; }
 
 .search-container input[type="text"] {
   width: 0;
   opacity: 0;
-  transition: width 0.4s ease-in-out, opacity 0.4s ease-in-out, padding 0.4s ease-in-out;
   border: none;
   outline: none;
   background-color: transparent;
@@ -124,6 +125,10 @@ html, body {
   font-size: 13px;
   height: 36px;
   padding: 0;
+  transition:
+    width 0.4s ease-in-out,
+    opacity 0.4s ease-in-out,
+    padding 0.4s ease-in-out;
 }
 
 .search-container.open input[type="text"] {
@@ -131,11 +136,11 @@ html, body {
   opacity: 1;
   padding: 0 10px;
 }
+
 /* ===== Hero Logo Custom ===== */
-/* ✅ תוספת חדשה עבור הלוגו QAUTOMATED והסלוגן */
 .hero-logo {
-  background-color: rgba(0, 0, 0, 0.70); /* לוחית שחורה שקופה יותר */
-  padding: 8px 2px 0 2px; /* 🔥 צמצמנו padding תחתון ל־6px */
+  background-color: rgba(0, 0, 0, 0.70);
+  padding: 8px 2px 0 2px;
   border-radius: 8px;
   display: inline-block;
 }
@@ -143,37 +148,619 @@ html, body {
 .hero-title {
   font-family: 'Cinzel Decorative', serif;
   font-size: 60px;
-  color: #b38b5e;       /* גוון קאמל */
+  color: #b38b5e;
   letter-spacing: 6px;
   margin: 0;
-  line-height: 1.1;          /* ✅ צמצום המרווח בין השורות */
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  line-height: 1.1;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
   font-family: 'Lato', sans-serif;
   font-size: 22px;
-  color: #b38b5e;       /* אותו גוון קאמל */
-  margin-top: 0;
-  margin-top: 2;           /* ✅ היה אפשרי 8px – צמצמנו */
+  color: #b38b5e;
+  margin-top: 2px;  /* תיקון ל-px */
   letter-spacing: 1px;
 }
-/* ===== מיקום הלוגו על תמונת ה-Hero ===== */
-#home .hero-logo-container {           /* יורש position/left/transform מ-w3-display-middle */
-  top: 70%;                            /* ↓ ברירת מחדל – מעט מתחת לאמצע */
+
+/* מיקום הלוגו על תמונת ה-Hero */
+#home .hero-logo-container { top: 70%; }
+
+@media (max-width: 768px)  { #home .hero-logo-container { top: 68%; } }
+@media (min-width: 1600px) { #home .hero-logo-container { top: 78%; } }
+@media (min-width: 1920px) { #home .hero-logo-container { top: 80%; } }
+
+/* ===== CODE PICTURE – רקע פרלקס כללי ===== */
+#code-picture {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  background: url('vscode_bg.JPG') center center / cover no-repeat fixed;
+  filter: brightness(1.5);
 }
 
-/* מסכים קטנים – קצת פחות נמוך */
-@media (max-width: 768px) {
-  #home .hero-logo-container { top: 68%; }
+#code-picture::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
+  z-index: 0;
 }
 
-/* מסכים גדולים מאוד – להוריד עוד כדי להישאר באזור החולצה */
-@media (min-width: 1600px) {
-  #home .hero-logo-container { top: 78%; }
+#code-picture > * {
+  position: relative;
+  z-index: 1;
 }
 
-/* אולטרה-רחבים (32"+) */
-@media (min-width: 1920px) {
-  #home .hero-logo-container { top: 80%; }
+.section-bg {
+  background: rgba(0,0,0,0.4);
+  padding: 64px 0;
+  border-radius: 8px;
 }
+
+/* ===== ABOUT ===== */
+#about {
+  position: relative;
+  width: 90vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 1vw;
+  font-family: 'Fira Code', monospace;
+  font-style: italic;
+  z-index: 1;
+}
+
+#about > * {
+  position: relative;
+  z-index: 2;
+  color: #f3f3f3;
+}
+
+#about h3 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 40px;
+  letter-spacing: 6px;
+  color: #b38b5e !important;
+  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-transform: uppercase;
+}
+
+#about p {
+  margin: 0 0 5px;
+  line-height: 1.6;
+}
+
+#about p.w3-center em {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: bold;
+  font-size: 22px;
+  letter-spacing: 6px;
+  color: #b38b5e !important;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
+}
+
+/* ===== QA Journey Map + Manifesto ===== */
+#qa-journey {
+  position: relative;
+  color: #f3f3f3;
+  padding-top: 0;
+  padding-bottom: 2px;
+  margin-bottom: 0;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.3);
+  width: 90%;
+  margin: 20px auto;
+}
+
+.section-title {
+  text-align: center;
+  display: block;
+  margin: -70px auto 30px;
+}
+
+.journey-container { padding: 10px 20px; }
+
+.journey-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.journey-timeline li {
+  margin: 30px 0;
+  position: relative;
+  padding-left: 40px;
+}
+
+.journey-timeline li::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.3);
+}
+
+.journey-timeline .dot {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  width: 18px;
+  height: 18px;
+  background: #b38b5e;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(179,139,94,0.8);
+}
+
+.journey-timeline .step {
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+  color: #b38b5e;
+  text-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+.manifesto {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  line-height: 1.6;
+  margin-top: 40px;
+}
+
+.manifesto h4 {
+  font-family: 'Cinzel Decorative', serif;
+  letter-spacing: 3px;
+  margin: 0 0 16px;
+  text-align: center;
+  color: #b38b5e;
+  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+}
+
+.manifesto ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.manifesto li { margin-bottom: 12px; }
+
+/* ===== Bug Toolbox ===== */
+#bug-toolbox .bug-card {
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+  color: #f3f3f3;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.tool-grid li {
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+  color: #f3f3f3;
+  position: relative;
+  cursor: default;
+}
+
+.tool-grid li::after {
+  content: attr(data-tip);
+  position: absolute;
+  left: 50%;
+  bottom: 110%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,.75);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: .15s;
+}
+
+.tool-grid li:hover::after { opacity: 1; }
+
+/* ===== Before/After Slider ===== */
+.ba-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.ba-img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ba-before { clip-path: inset(0 50% 0 0); transition: clip-path 0.2s; }
+
+.ba-slider {
+  position: relative;
+  width: 100%;
+  margin-top: 220px;
+}
+
+.ba-caption {
+  margin-top: 12px;
+  color: #f3f3f3;
+  text-align: center;
+  font-family: 'Fira Code', monospace;
+}
+
+/* ===== Trust Dashboard ===== */
+.trust-dashboard {
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px;
+  color: #f3f3f3;
+  font-family: 'Fira Code', monospace;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.metric:last-child { border-bottom: none; }
+.metric .value {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* ===== Experiment Lab ===== */
+#experiment-lab {
+  position: relative;
+  color: #f3f3f3;
+}
+
+#experiment-lab .section-title {
+  text-align: center;
+  font-family: 'Cinzel Decorative', serif;
+  letter-spacing: 4px;
+}
+/* === 🆕 עדכון לפריסת Automation Playground === */
+.lab-flex {
+  max-width: 1200px;       /* שווה ל־ABOUT */
+  margin: 0 auto;          /* מרכז באמצע */
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 80px;               /* רווח בין צדדים */
+}
+
+.lab-left {
+  flex: 0 0 48%;              /* קצת פחות מחצי כדי שיישב שמאלה */
+  min-width: 400px;
+  padding: 20px;
+}
+
+.lab-right {
+  flex: 0 0 52%;              /* הצד הימני מקבל קצת יותר מקום */
+  min-width: 400px;
+  padding: 20px;
+}
+
+/*.lab-flex { display: flex; flex-wrap: wrap; }
+.lab-left, .lab-right { padding: 20px; }
+*/
+@media (min-width: 900px) {
+  .lab-left,
+  .lab-right {
+    min-width: 400px; /* שני הצדדים לא יצטמצמו מתחת לערך הזה */
+  }
+}
+.lab-console {
+  background: rgba(0,0,0,0.65);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  padding: 16px;
+  font-family: 'Fira Code', monospace;
+  color: #f3f3f3;
+  box-shadow: 0 0 15px rgba(179,139,94,0.3);
+  overflow: hidden;
+}
+
+.lab-step {
+  margin: 8px 0;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.05);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.lab-step.pass { border-left: 4px solid #4caf50; }
+.lab-step.fail { border-left: 4px solid #e53935; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateX(-15px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.lab-progress {
+  width: 100%;
+  height: 14px;
+  margin-top: 14px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+}
+
+.lab-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: 10px;
+  background: linear-gradient(270deg,#4caf50,#b38b5e,#4caf50);
+  background-size: 400% 400%;
+  animation: gradientFlow 6s ease infinite;
+  transition: width 0.4s ease;
+}
+
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50% }
+  50%  { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+/* ✨ מד עגול (Gauge) ניאון עתידני */
+.lab-gauge-wrap {
+  width: 180px; /* רוחב כולל של הקומפוננטה */
+  height: 180px; /* גובה כולל */
+  margin: 20px auto 0;
+  position: relative;
+  display: flex; /* כדי למרכז את ה-SVG והטקסט */
+  justify-content: center;
+  align-items: center;
+}
+/* === 🆕 שדרוג multi-ring למד הקיים === */
+/* ... (הקוד שלך לפני, עד איפה שמתחיל ה-gauge) ... */
+
+/* ✨ מד עגול (Gauge) ניאון עתידני */
+.lab-gauge-wrap {
+  width: 180px; /* רוחב כולל של הקומפוננטה */
+  height: 180px; /* גובה כולל */
+  margin: 20px auto 0;
+  position: relative;
+  display: flex; /* כדי למרכז את ה-SVG והטקסט */
+  justify-content: center;
+  align-items: center;
+}
+
+.lab-gauge {
+  position: relative;
+  width: 100%; /* תופס את כל הרוחב של ה-wrap */
+  height: 100%; /* תופס את כל הגובה של ה-wrap */
+  border-radius: 50%;
+  background: radial-gradient(circle at center,
+      rgba(0, 0, 0, 0.7) 0%, /* מרכז שחור יותר */
+      rgba(0, 0, 0, 0.9) 70%); /* קצוות כהים יותר */
+  overflow: hidden; /* לוודא שהזוהר לא יוצא מגבולות */
+  box-shadow:
+    0 0 20px rgba(0, 246, 255, 0.8), /* תכלת */
+    0 0 40px rgba(0, 255, 127, 0.8), /* ירוק */
+    0 0 60px rgba(157, 0, 255, 0.8); /* סגול */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lab-gauge svg {
+  position: absolute; /* מיקום מוחלט בתוך ה-gauge */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* מתחיל את ההתקדמות מלמעלה */
+  z-index: 1; /* מעל רקע ה-gauge */
+}
+
+/* סגנונות כלליים למעגלים ב-SVG */
+.lab-gauge svg circle {
+  fill: transparent; /* המעגלים עצמם שקופים */
+  stroke-width: 8px; /* עובי הטבעת */
+  stroke-linecap: round; /* קצוות מעוגלים לטבעות */
+  transition: stroke-dasharray 0.7s ease-out, stroke 0.3s ease-in-out;
+}
+
+/* טבעות רקע (החלק המלא שאינו מתקדם) */
+.lab-gauge svg .gauge-bg-outer,
+.lab-gauge svg .gauge-bg-middle,
+.lab-gauge svg .gauge-bg-inner {
+  stroke: rgba(255, 255, 255, 0.15); /* צבע רקע עדין לכל הטבעות */
+}
+
+/* טבעות ההתקדמות – צבעוניות וזוהרות */
+.lab-gauge svg .gauge-meter-outer {
+  stroke: url(#gradient1); /* משתמש בגרדיאנט שהגדרנו ב-HTML */
+  filter: drop-shadow(0 0 8px #00f6ff) drop-shadow(0 0 15px #00ff7f); /* זוהר תכלת וירוק */
+}
+
+.lab-gauge svg .gauge-meter-middle {
+  stroke: url(#gradient2);
+  filter: drop-shadow(0 0 8px #00ff7f) drop-shadow(0 0 15px #9d00ff); /* זוהר ירוק וסגול */
+  stroke-width: 6px; /* טבעת אמצעית מעט דקה יותר */
+}
+
+.lab-gauge svg .gauge-meter-inner {
+  stroke: url(#gradient3);
+  filter: drop-shadow(0 0 8px #9d00ff) drop-shadow(0 0 15px #00f6ff); /* זוהר סגול ותכלת */
+  stroke-width: 4px; /* טבעת פנימית דקה ביותר */
+}
+
+/* טקסט אחוזים – מרכז ומעצב אותו */
+.lab-gauge-text {
+  position: relative; /* ימוקם בתוך ה-flex container של .lab-gauge */
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 36px; /* גודל גדול יותר */
+  font-weight: bold;
+  color: #f3f3f3; /* צבע לבן */
+  text-shadow:
+    0 0 8px rgba(0, 246, 255, 0.7),
+    0 0 15px rgba(0, 255, 127, 0.7),
+    0 0 25px rgba(157, 0, 255, 0.7); /* זוהר ניאוני לטקסט */
+  z-index: 2; /* מעל ה-SVG */
+}
+
+/* ... (שאר הקוד שלך אחרי) ... */
+#labCode {
+  background: rgba(0,0,0,0.4);
+  padding: 16px;
+  border-radius: 8px;
+  font-family: 'Fira Code', monospace;
+  white-space: pre-wrap;
+}
+
+#labCode .assert {
+  color: #ffb347;
+  font-weight: bold;
+}
+
+.w3-camel {
+  background-color: #b38b5e;
+  color: #000;
+}
+
+.w3-camel:hover { background-color: #ddb180; }
+
+/* ===== Playground Tabs & Controls ===== */
+.lab-tabs { display:flex; gap:8px; margin-bottom:10px; }
+.lab-tab {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 8px 12px;
+  color:#f3f3f3; cursor:pointer;
+  backdrop-filter: blur(2px);
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+.lab-tab:hover { transform: translateY(-1px); box-shadow: 0 0 10px rgba(179,139,94,.25); }
+.lab-tab.is-active { border-color:#b38b5e; box-shadow: 0 0 12px rgba(179,139,94,.35) inset; }
+
+.lab-controls { display:flex; align-items:center; gap:12px; margin:8px 0 12px; }
+.lab-toggle { display:flex; align-items:center; gap:6px; font-size:13px; opacity:.9; }
+
+/* typewriter intro inside console */
+.lab-typewriter { min-height: 22px; white-space: nowrap; overflow: hidden; border-right: 2px solid #b38b5e; }
+
+/* Cards container (right) */
+.lab-cards { display:grid; grid-template-columns: 1fr; gap:10px; margin-bottom:12px; }
+@media (min-width: 640px){ .lab-cards { grid-template-columns: 1fr 1fr; } }
+
+.lab-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px;
+  padding: 12px;
+  color:#f3f3f3;
+  box-shadow: 0 0 12px rgba(179,139,94,0.2);
+  animation: fadeIn .4s ease forwards;
+}
+.lab-card.pass { border-left: 4px solid #4caf50; }
+.lab-card.fail { border-left: 4px solid #e53935; }
+.lab-card .title { display:flex; align-items:center; gap:8px; font-weight:700; }
+.lab-card .meta { font-size:12px; opacity:.85; margin-top:6px; }
+.lab-card .details { margin-top:8px; font-size:13px; opacity:.95; }
+
+/* tiny “visual diff” badge */
+.badge {
+  display:inline-block; padding:2px 8px; font-size:11px;
+  border-radius:999px; background:rgba(179,139,94,0.18); border:1px solid rgba(179,139,94,0.45);
+  margin-left:6px; letter-spacing:.3px;
+}
+/* ✅ שינוי – מסגרת כחול ניאון קיצונית לשדה הבחירה */
+#labType {
+  border: 2px solid #00f6ff;               /* קו כחול ניאון בסיסי */
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.35);      /* רקע כהה חצי שקוף לשמירת אפקט הזוהר */
+  color: #f3f3f3;
+  padding: 8px 12px;
+  font-family: 'Fira Code', monospace;
+  font-size: 16px;
+
+  /* ✨ אפקט זוהר קיצוני – הרבה שכבות */
+  box-shadow:
+    0 0 6px  #00f6ff,
+    0 0 12px  #00f6ff,
+    0 0 20px  #00f6ff,
+    0 0 28px  #00f6ff,
+    0 0 9px  #00f6ff;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* ✅ שינוי – עוד יותר זוהר במעבר עכבר */
+#labType:hover,
+#labType:focus {
+  border-color: #00ffff;
+  box-shadow:
+    0 0 8px  #00ffff,
+    0 0 16px  #00ffff,
+    0 0 24px  #00ffff,
+    0 0 32px #00ffff,
+    0 0 13px #00ffff;
+  outline: none;
+}
+/* ✅ שינוי – מסגרת ירוק ניאון קיצונית לשדות Passed */
+.lab-step.pass,
+.lab-card.pass {
+  border: 2px solid #00ff7f;  /* ירוק ניאון בסיסי */
+  border-left-width: 4px;     /* שומר את ה-strip השמאלי */
+  box-shadow:
+    0 0 6px  #00ff7f,
+    0 0 12px  #00ff7f,
+    0 0 20px  #00ff7f,
+    0 0 28px  #00ff7f,
+    0 0 9px  #00ff7f;
+}
+
+/* ✅ שינוי – מסגרת אדום ניאון קיצונית לשדות Failed */
+.lab-step.fail,
+.lab-card.fail {
+  border: 2px solid #ff0033;  /* אדום ניאון בסיסי */
+  border-left-width: 4px;
+  box-shadow:
+    0 0 6px  #ff0033,
+    0 0 12px  #ff0033,
+    0 0 20px  #ff0033,
+    0 0 28px  #ff0033,
+    0 0 9px  #ff0033;
+}
+/* 🎯 Fine-tune – הזזה שמאלה רק לתוכן הפנימי של הסקשנים */
+#qa-journey .w3-row-padding {
+  margin-left: -30px;   /* תזוזה שמאלה לתוכן */
+}
+
+#experiment-lab .lab-flex {
+  margin-left: -30px;   /* תזוזה שמאלה לתוכן */
+}
+
+
+
