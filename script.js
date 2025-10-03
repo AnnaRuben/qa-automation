@@ -314,32 +314,48 @@ function openEvidence(id) {
 // Detect automation mode
 const isAutomation = new URLSearchParams(location.search).get("automation") === "1";
 
-const btn = document.getElementById("runE2E");
+const btn = document.getElementById("runTestBtn");
 if (btn) {
-btn.addEventListener("click", async (e) => {
-  const resultsBox = document.getElementById("e2eResults");
-  if (!resultsBox) return;
-if (isAutomation) {
-    e.preventDefault();
-    resultsBox.innerHTML = `
-      <p><b>Status:</b> SIMULATED</p>
-      <pre>Automation mode is on; backend call is disabled to avoid recursion.</pre>
-    `;
-    return;
-  }
+  btn.addEventListener("click", async () => {
+    const resultsBox = document.getElementById("e2eResults");
+    resultsBox.innerHTML = "<p>⏳ Running test... please wait</p>";
 
-  resultsBox.innerHTML = "<p>⏳ Running test... please wait</p>";
+    try {
+      const res = await fetch("/api/run-e2e");
+      const data = await res.json();
 
-  try {
-    const res = await fetch("/api/run-e2e");
-    const data = await res.json();
-
-    resultsBox.innerHTML = `
-      <p><b>Status:</b> ${data.status}</p>
-      <pre>${data.log}</pre>
-    `;
-  } catch (err) {
-    resultsBox.innerHTML = `<p style="color:red;">❌ Error while running the test</p>`;
-  }
-});
+      resultsBox.innerHTML = `
+        <p><b>Status:</b> ${data.status}</p>
+        <pre>${data.log}</pre>
+      `;
+    } catch (err) {
+      resultsBox.innerHTML = `<p style="color:red;">❌ Error while running the test</p>`;
+    }
+  });
 }
+// סימולציה של התקדמות ה־steps
+const steps = document.querySelectorAll(".step");
+let index = 0;
+
+function runProgress(pass = true) {
+  const interval = setInterval(() => {
+    if (index < steps.length - 1) {
+      steps[index].classList.add("active");
+      index++;
+    } else {
+      clearInterval(interval);
+      // שלב סופי: PASS או FAIL
+      const finalStep = steps[steps.length - 1];
+      finalStep.classList.add("active");
+      if (!pass) {
+        finalStep.querySelector(".icon").textContent = "❌";
+        finalStep.querySelector(".label").textContent = "FAIL";
+        finalStep.classList.remove("final");
+        finalStep.classList.add("final", "fail");
+      }
+    }
+  }, 1200); // כל 1.2 שניות שלב חדש
+}
+
+// הפעלה
+runProgress(true); // true = PASS, false = FAIL

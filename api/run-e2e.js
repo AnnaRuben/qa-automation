@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
     browser = await chromium.connect({ wsEndpoint });
     log += "✅ Connected to remote browser\n";
 
-const context = await browser.newContext();
+    const context = await browser.newContext();
     const page = await context.newPage();
 
     // open your site with ?automation=1 to avoid recursion
@@ -20,13 +20,16 @@ const context = await browser.newContext();
     await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30000 });
     log += `✅ Opened ${url}\n`;
 
+    // fill form
     await page.fill("#demoName", "QA Automation");
     await page.fill("#demoEmail", "qa@example.com");
     log += "✅ Filled form fields\n";
 
-    await page.click("#runE2E");
+    // click button (fixed selector!)
+    await page.click("#runTestBtn");
     log += "✅ Clicked Run E2E\n";
 
+    // wait and grab UI status
     await page.waitForTimeout(500);
     const uiStatus = await page.textContent("#e2eResults");
 

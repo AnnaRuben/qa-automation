@@ -223,17 +223,27 @@
 
 <section id="e2e-demo" class="w3-padding-64">
   <h3 class="section-title">E2E Corner, Live Proof</h3>
-  <p>I’m not just talking about automation, I’m demonstrating it.  
-  Click the button and watch an E2E test run live on this form!</p>
+<p>
+ <strong>I’m not just talking about automation, I’m demonstrating it.</strong><br>  
+ <span>Click the button and watch an E2E test run live on this form!</span>
+</p>
 
-  <!-- Demo Form -->
-  <form id="demoForm" class="w3-container w3-card w3-padding" onsubmit="return false;">
-    <label>Name:</label>
-    <input type="text" id="demoName" class="w3-input w3-margin-bottom" placeholder="Enter your name">
-    <label>Email:</label>
-    <input type="email" id="demoEmail" class="w3-input w3-margin-bottom" placeholder="Enter your email">
-    <button id="runE2E" class="w3-button w3-camel">Run E2E Test</button>
-  </form>
+<!-- Demo Form -->
+<form id="demoForm" class="w3-container w3-card w3-padding" onsubmit="return false;">
+  <label for="demoName">Name:</label>
+  <input type="text" id="demoName" class="w3-input w3-margin-bottom" placeholder="Enter your name">
+
+  <label for="demoEmail">Email:</label>
+  <input type="email" id="demoEmail" class="w3-input w3-margin-bottom" placeholder="Enter your email">
+
+<button id="runTestBtn" type="button" class="w3-button w3-green w3-margin-top">
+  Run E2E Test
+</button>
+
+</form>
+
+<!-- Progress UI -->
+<div id="progressContainer" class="w3-container w3-margin-top"></div>
 
   <!-- Results Area -->
   <div id="e2eResults" class="w3-panel w3-black w3-margin-top" style="min-height:80px;">
@@ -242,6 +252,31 @@
 </section>
 
         <hr class="section-divider">
+
+ <div class="e2e-progress">
+  <div class="step">
+    <span class="icon">🔗</span>
+    <span class="label">Connecting to browser</span>
+  </div>
+  <div class="step">
+ <span class="icon">🌐</span>
+    <span class="label">Opening site</span>
+  </div>
+  <div class="step">
+    <span class="icon">✍️</span>
+    <span class="label">Filling form</span>
+  </div>
+  <div class="step">
+    <span class="icon">🖱️</span>
+    <span class="label">Clicking button</span>
+  </div>
+  <div class="step final">
+    <span class="icon">✅</span>
+    <span class="label">PASS</span>
+  </div>
+</div> 
+
+<hr class="section-divider">     
 
         <!-- 🔥 Before/After + Trust Dashboard -->
         <section id="before-after-dashboard" class="w3-padding-64">
