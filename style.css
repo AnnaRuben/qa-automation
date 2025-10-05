@@ -14,9 +14,11 @@ body {
   min-height: 100vh;
   color: #777;
   line-height: 1.8;
-  scroll-behavior: smooth;  /* גלילה חלקה */
+  scroll-behavior: smooth;
+  /* גלילה חלקה */
   margin: 0;
   padding: 0;
+  background-color: transparent; /* ❌ ביטול רקע שמוסיף פס שחור */
 }
 
 /* ===== Hero + Parallax Images ===== */
@@ -26,7 +28,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
-  background-attachment: fixed; /* אפקט פרלקס בדסקטופ */
+  background-attachment: fixed;
+  /* אפקט פרלקס בדסקטופ */
 }
 
 .bgimg-1 {
@@ -47,6 +50,7 @@ body {
 
 /* ביטול פרלקס במסכים קטנים */
 @media (max-width: 1024px) {
+
   .bgimg-1,
   .bgimg-2,
   .bgimg-3 {
@@ -55,91 +59,450 @@ body {
   }
 }
 
-/* ===== ניווט ===== */
-.camel-navbar {
-  background-color: #f0d3b0 !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
-  transition: background-color 0.3s ease;
+/* ===== תפריט איקונים חדש ===== */
+.icon-container {
+  margin-top: 0; /* ✅ במקום 30px */
+  width: 100%;
+  height: 60px;
+  text-align: center;
 }
 
-.w3-bar {
-  position: relative;
-  z-index: 10;
-}
-
-.w3-bar .w3-button {
-  color: #2c2c2c !important;
-  font-weight: bold;
-  font-family: 'Cinzel Decorative', serif !important;
-}
-
-.w3-bar .w3-button:hover {
-  background-color: #ddb180 !important;
-  color: black !important;
-}
-
-#navDemo .w3-bar-item {
-  font-family: 'Cinzel Decorative', serif !important;
-}
-
-/* ===== הדגשות חיפוש ===== */
-.highlighted-search {
-  background-color: #ff00ff;     /* ורוד ניאון בסיסי */
-  color: #fff;                  /* טקסט לבן כדי לבלוט */
-  font-weight: bold;            /* טקסט מודגש */
-  padding: 0 3px;               /* רווח קטן */
-  border-radius: 3px;           /* פינות מעוגלות */
-  text-shadow: 0 0 6px #ff4dff, 0 0 12px #ff1aff, 0 0 24px #ff00ff; /* הילה פנימית */
-  box-shadow: 0 0 6px #ff4dff, 0 0 12px #ff1aff, 0 0 24px #ff00ff; /* הילה חיצונית */
-}
-
-/* ===== קומפוננטת חיפוש ===== */
-.search-container {
+.icon-bar {
+  position: fixed;
+  top: 12px;              /* גובה עדין מהחלק העליון */
+  left: 3px;             /* ממוקם בפינה השמאלית */
   display: flex;
-  align-items: center;
-  position: relative;
-  right: 20px;
-}
-
-.search-btn {
-  background-color: #f0d3b0;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  display: flex;
+  gap: 12px;              /* רווח בין האייקונים */
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 10px 16px;
+  border-radius: 40px;    /* עגלול רך יותר */
+  z-index: 999;           /* מעל שדה החיפוש */
+  width: auto;            /* ❌ במקום 100% */
+  height: 60px;           /* גובה אחיד */
   justify-content: center;
   align-items: center;
+}
+
+/* תפריט אייקונים */
+.icon {
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin: 0 12px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: rgba(45, 44, 62, 0.6); /* ✅ רקע שקוף-כהה תמיד */
+  backdrop-filter: blur(4px);        /* ✅ אפקט "שקופית" */
 }
 
-.search-btn:hover { background-color: #ddb180; }
-.search-btn i.fa-search { color: #2c2c2c; }
+.icon::before,
+.icon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  transition: all 0.25s ease;
+  border-radius: 30px;
+}
+.icon i {
+  position: relative;
+  color: #fff;        /* ✅ אייקון תמיד לבן */
+  font-size: 30px;
+  line-height: 60px;  /* ✅ ממרכז אנכית */
+  text-align: center; /* ✅ ממרכז אופקית */
+  display: block;
+  transition: all 0.25s ease;
+}
+/* Fill */
+.icon-fill::before {
+  box-shadow: inset 0 0 0 2px #16A085; /* מסגרת ירוקה */
+}
+.icon-fill:hover {
+  background: #16A085; /* במעבר מתמלא ירוק */
+}
+/* Enter */
+.icon-enter::before {
+  box-shadow: inset 0 0 0 2px #EB9532; /* מסגרת כתומה */
+  background: transparent;
+}
+.icon-enter:hover::before {
+  background: #EB9532; /* מילוי כתום בהובר */
+}
 
-.search-container.open .search-btn { border-radius: 50%; }
+/* Expand */
+.icon-expand::after {
+  box-shadow: inset 0 0 0 2px #C82647; /* רק מסגרת אדומה */
+}
 
-.search-container input[type="text"] {
-  width: 0;
-  opacity: 0;
+.icon-expand::before {
+  background: transparent; /* ברירת מחדל רקע שקוף */
+}
+
+.icon-expand:hover::before {
+  background: #C82647; /* רק במעבר – מתמלא באדום */
+}
+/* Collapse */
+.icon-collapse::before {
+  border-radius: 0;
+}
+.icon-collapse:hover::before {
+  box-shadow: 
+    inset 0 30px 0 0 #8CC63F,
+    inset 0 -30px 0 0 #8CC63F;
+}
+.icon-collapse::after {
+  box-shadow: inset 0 0 0 1px #8CC63F;
+}
+
+/* Rotate */
+.icon-rotate {
+  box-shadow: inset 0 0 0 1px #7E3661;
+}
+.icon-rotate::before,
+.icon-rotate::after {
+  border: 0px solid transparent;
+}
+.icon-rotate:hover::before {
+  transition: border-top-width 0.3s ease, border-top-color 0.3s ease;
+  border-width: 60px;
+  border-top-color: #7E3661;
+}
+.icon-rotate:hover::after {
+  transition: border-left-width 0.3s ease, border-left-color 0.3s ease;
+  border-width: 60px;
+  border-left-color: #7E3661;
+}
+.icon-rotate:hover {
+  transition: background 0.001s ease 0.3s;
+  background: #7E3661;
+}
+.icon-rotate i {
+  z-index: 1;
+}
+/* ✅ כאן תכניסי את החלק החדש */
+.icon-fill::before { box-shadow: inset 0 0 0 2px #16A085; }
+.icon-enter::before { box-shadow: inset 0 0 0 2px #EB9532; }
+.icon-expand::before { box-shadow: inset 0 0 0 2px #C82647; }
+.icon-collapse::before { box-shadow: inset 0 0 0 2px #8CC63F; }
+.icon-rotate::before { box-shadow: inset 0 0 0 2px #7E3661; }
+
+.icon-fill:hover { background: #16A085; }
+.icon-enter:hover { background: #EB9532; }
+.icon-expand:hover { background: #C82647; }
+.icon-collapse:hover { background: #8CC63F; }
+.icon-rotate:hover { background: #7E3661; }
+/* ===== הדגשות חיפוש ===== */
+/* From Uiverse.io by Pankaj-Meharchandani */ 
+.grid {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba(255, 221, 170, 0.25),
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+.white,
+.border,
+.darkBorderBg,
+.glow {
+  max-height: 70px;
+  max-width: 314px;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+  border-radius: 12px;
+  filter: blur(3px);
+}
+
+.input {
+  background-color: #f2e2c4; /* Muted beige for retro */
+  color: #3a2e20; /* Dark brown for contrast */
   border: none;
-  outline: none;
-  background-color: transparent;
-  color: #2c2c2c;
-  font-family: 'Cinzel Decorative', serif;
-  font-size: 13px;
-  height: 36px;
-  padding: 0;
-  transition:
-    width 0.4s ease-in-out,
-    opacity 0.4s ease-in-out,
-    padding 0.4s ease-in-out;
+  width: 301px;
+  height: 56px;
+  border-radius: 10px;
+  padding-inline: 59px;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
 }
 
-.search-container.open input[type="text"] {
-  width: 150px;
+#poda {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input::placeholder {
+  color: #857754; /* Soft, warm brown */
+}
+
+.input:focus {
+  outline: none;
+}
+
+/* ✨ Hover חזק על השדה עצמו */
+.input:hover,
+.input:focus {
+  background-color: #fff8e6;
+  border: 2px solid #ffb347;
+  box-shadow:
+    0 0 15px #ffcf7f,
+    0 0 30px #ffb347,
+    0 0 60px #ff9933,
+    0 0 120px #ff6600,
+    inset 0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+#main:focus-within > #input-mask {
+  display: none;
+}
+
+#input-mask {
+  pointer-events: none;
+  width: 100px;
+  height: 20px;
+  position: absolute;
+  background: linear-gradient(90deg, transparent, #3a2e20);
+  top: 18px;
+  left: 70px;
+}
+
+#pink-mask {
+  pointer-events: none;
+  width: 30px;
+  height: 20px;
+  position: absolute;
+  background: #f28e8e; /* Warm coral */
+  top: 10px;
+  left: 5px;
+  filter: blur(20px);
+  opacity: 0.8;
+  transition: all 2s;
+}
+
+#main:hover > #pink-mask {
+  opacity: 0;
+}
+
+.white {
+  max-height: 63px;
+  max-width: 307px;
+  border-radius: 10px;
+  filter: blur(2px);
+}
+
+.white::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(83deg);
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  filter: brightness(1.4);
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0) 0%,
+    #dcb483,
+    rgba(0, 0, 0, 0) 8%,
+    rgba(0, 0, 0, 0) 50%,
+    #d16e5a,
+    rgba(0, 0, 0, 0) 58%
+  );
+  transition: all 2s;
+}
+
+.border {
+  max-height: 59px;
+  max-width: 303px;
+  border-radius: 11px;
+  filter: blur(0.5px);
+}
+
+.border::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(70deg);
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  filter: brightness(1.3);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(
+    #3a2e20,
+    #c98f65 5%,
+    #3a2e20 14%,
+    #3a2e20 50%,
+    #f28e8e 60%,
+    #3a2e20 64%
+  );
+  transition: all 2s;
+}
+
+.darkBorderBg {
+  max-height: 65px;
+  max-width: 312px;
+}
+
+.darkBorderBg::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(82deg);
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(
+    rgba(0, 0, 0, 0),
+    #725d4a,
+    rgba(0, 0, 0, 0) 10%,
+    rgba(0, 0, 0, 0) 50%,
+    #d16e5a,
+    rgba(0, 0, 0, 0) 60%
+  );
+  transition: all 2s;
+}
+
+/* ✨ חיזוק עדין ביותר בעת hover */
+#poda:hover > .darkBorderBg::before,
+#poda:focus-within > .darkBorderBg::before,
+#poda:hover > .glow::before,
+#poda:focus-within > .glow::before,
+#poda:hover > .white::before,
+#poda:focus-within > .white::before,
+#poda:hover > .border::before,
+#poda:focus-within > .border::before {
+  filter: brightness(1.1) blur(6px);  /* ריכוך חזק יותר */
+  opacity: 0.25;                      /* זוהר ממש חלש */
+  box-shadow:
+    0 0 1px #ffcf7f,
+    0 0 2px #ffb347,
+    0 0 4px #ff9933; /* קו מתאר עדין מאוד */
+  transition: all 0.3s ease-in-out;
+}
+
+/* מצבי בסיס – גם הם מרוככים */
+.white, .border, .darkBorderBg {
+  filter: blur(1px);
+  opacity: 0.5;
+}
+
+.glow {
+  overflow: hidden;
+  filter: blur(10px); /* מצומצם מאוד */
+  opacity: 0.15;      /* כמעט שקוף */
+  max-height: 130px;
+  max-width: 354px;
+}
+
+.glow::before {
+  content: "";
+  z-index: -2;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(60deg);
+  position: absolute;
+  width: 999px;
+  height: 999px;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-image: conic-gradient(
+    #000,
+    #c98f65 5%,
+    #000 38%,
+    #000 50%,
+    #f28e8e 60%,
+    #000 87%
+  );
+  transition: all 2s;
+}
+
+/* ===== Filter Button – updated to glowing, white-outline version ===== */
+#filter-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  height: 40px;
+  width: 38px;
+  border-radius: 10px;
+  background: linear-gradient(180deg, #a57d52, #846846, #6b5342);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 0 6px rgba(255, 255, 255, 0.4),
+    0 0 12px rgba(255, 204, 153, 0.3),
+    inset 0 0 4px rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* ✨ hover חזק לפילטר */
+#filter-icon:hover {
+  border: 2px solid #fff;
+  background: linear-gradient(180deg, #ffb347, #ff9933, #ff6600);
+  box-shadow:
+    0 0 20px #ffcf7f,
+    0 0 40px #ffb347,
+    0 0 80px #ff9933,
+    0 0 160px #ff6600;
+  transform: scale(1.1);
+}
+
+#filter-icon i {
+  color: #ffffff;
+  opacity: 0.85;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease-in-out;
+}
+
+#filter-icon:hover i {
   opacity: 1;
-  padding: 0 10px;
+  text-shadow:
+    0 0 12px #ffffff,
+    0 0 25px #ffcf7f,
+    0 0 50px #ffb347,
+    0 0 100px #ff9933;
+  transform: scale(1.15);
+}
+
+.filterBorder {
+  display: none; /* ❌ ביטול המסגרת הישנה */
+}
+
+#main {
+  position: relative;
+  font-family: "Courier New", Courier, monospace; /* Retro-style font */
+}
+
+#search-icon {
+  position: absolute;
+  left: 20px;
+  top: 15px;
+  color: #c98f65;
 }
 
 /* ===== Hero Logo Custom ===== */
@@ -164,16 +527,33 @@ body {
   font-family: 'Lato', sans-serif;
   font-size: 22px;
   color: #b38b5e;
-  margin-top: 2px;  /* תיקון ל-px */
+  margin-top: 2px;
+  /* תיקון ל-px */
   letter-spacing: 1px;
 }
 
 /* מיקום הלוגו על תמונת ה-Hero */
-#home .hero-logo-container { top: 70%; }
+#home .hero-logo-container {
+  top: 70%;
+}
 
-@media (max-width: 768px)  { #home .hero-logo-container { top: 68%; } }
-@media (min-width: 1600px) { #home .hero-logo-container { top: 78%; } }
-@media (min-width: 1920px) { #home .hero-logo-container { top: 80%; } }
+@media (max-width: 768px) {
+  #home .hero-logo-container {
+    top: 68%;
+  }
+}
+
+@media (min-width: 1600px) {
+  #home .hero-logo-container {
+    top: 78%;
+  }
+}
+
+@media (min-width: 1920px) {
+  #home .hero-logo-container {
+    top: 80%;
+  }
+}
 
 /* ===== CODE PICTURE – רקע פרלקס כללי ===== */
 #code-picture {
@@ -189,19 +569,22 @@ body {
 #code-picture::before {
   content: "";
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(2px);
   z-index: 0;
 }
 
-#code-picture > * {
+#code-picture>* {
   position: relative;
   z-index: 1;
 }
 
 .section-bg {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   padding: 64px 0;
   border-radius: 8px;
 }
@@ -218,7 +601,7 @@ body {
   z-index: 1;
 }
 
-#about > * {
+#about>* {
   position: relative;
   z-index: 2;
   color: #f3f3f3;
@@ -229,7 +612,7 @@ body {
   font-size: 40px;
   letter-spacing: 6px;
   color: #b38b5e !important;
-  text-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   text-transform: uppercase;
 }
 
@@ -259,7 +642,7 @@ body {
 
 .section-divider {
   border: none;
-  border-top: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   width: 90%;
   margin: 20px auto;
 }
@@ -270,7 +653,9 @@ body {
   margin: -70px auto 30px;
 }
 
-.journey-container { padding: 10px 20px; }
+.journey-container {
+  padding: 10px 20px;
+}
 
 .journey-timeline {
   list-style: none;
@@ -292,7 +677,7 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .journey-timeline .dot {
@@ -303,7 +688,7 @@ body {
   height: 18px;
   background: #b38b5e;
   border-radius: 50%;
-  box-shadow: 0 0 10px rgba(179,139,94,0.8);
+  box-shadow: 0 0 10px rgba(179, 139, 94, 0.8);
 }
 
 .journey-timeline .step {
@@ -311,12 +696,12 @@ body {
   letter-spacing: 1px;
   margin-bottom: 4px;
   color: #b38b5e;
-  text-shadow: 0 0 8px rgba(0,0,0,0.5);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
 
 .manifesto {
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 20px;
   line-height: 1.6;
@@ -329,7 +714,7 @@ body {
   margin: 0 0 16px;
   text-align: center;
   color: #b38b5e;
-  text-shadow: 0 0 8px rgba(0,0,0,0.6);
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
 
 .manifesto ul {
@@ -337,12 +722,14 @@ body {
   padding-left: 0;
 }
 
-.manifesto li { margin-bottom: 12px; }
+.manifesto li {
+  margin-bottom: 12px;
+}
 
 /* ===== Bug Toolbox ===== */
 #bug-toolbox .bug-card {
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(0, 0, 0, .35);
+  border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 14px;
@@ -358,8 +745,8 @@ body {
 }
 
 .tool-grid li {
-  background: rgba(0,0,0,.35);
-  border: 1px solid rgba(255,255,255,.1);
+  background: rgba(0, 0, 0, .35);
+  border: 1px solid rgba(255, 255, 255, .1);
   border-radius: 10px;
   padding: 14px;
   text-align: center;
@@ -374,7 +761,7 @@ body {
   left: 50%;
   bottom: 110%;
   transform: translateX(-50%);
-  background: rgba(0,0,0,.75);
+  background: rgba(0, 0, 0, .75);
   color: #fff;
   padding: 6px 10px;
   border-radius: 6px;
@@ -384,7 +771,9 @@ body {
   transition: .15s;
 }
 
-.tool-grid li:hover::after { opacity: 1; }
+.tool-grid li:hover::after {
+  opacity: 1;
+}
 
 /* ===== Before/After Slider ===== */
 .ba-container {
@@ -396,13 +785,17 @@ body {
 
 .ba-img {
   position: absolute;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   height: auto;
   display: block;
 }
 
-.ba-before { clip-path: inset(0 50% 0 0); transition: clip-path 0.2s; }
+.ba-before {
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.2s;
+}
 
 .ba-slider {
   position: relative;
@@ -419,8 +812,8 @@ body {
 
 /* ===== Trust Dashboard ===== */
 .trust-dashboard {
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   padding: 20px;
   color: #f3f3f3;
@@ -431,10 +824,13 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.metric:last-child { border-bottom: none; }
+.metric:last-child {
+  border-bottom: none;
+}
+
 .metric .value {
   font-weight: bold;
   font-size: 20px;
@@ -451,23 +847,29 @@ body {
   font-family: 'Cinzel Decorative', serif;
   letter-spacing: 4px;
 }
+
 /* === 🆕 עדכון לפריסת Automation Playground === */
 .lab-flex {
-  max-width: 1200px;       /* שווה ל־ABOUT */
-  margin: 0 auto;          /* מרכז באמצע */
+  max-width: 1200px;
+  /* שווה ל־ABOUT */
+  margin: 0 auto;
+  /* מרכז באמצע */
   display: flex;
   flex-wrap: nowrap;
-  gap: 80px;               /* רווח בין צדדים */
+  gap: 80px;
+  /* רווח בין צדדים */
 }
 
 .lab-left {
-  flex: 0 0 48%;              /* קצת פחות מחצי כדי שיישב שמאלה */
+  flex: 0 0 48%;
+  /* קצת פחות מחצי כדי שיישב שמאלה */
   min-width: 400px;
   padding: 20px;
 }
 
 .lab-right {
-  flex: 0 0 52%;              /* הצד הימני מקבל קצת יותר מקום */
+  flex: 0 0 52%;
+  /* הצד הימני מקבל קצת יותר מקום */
   min-width: 400px;
   padding: 20px;
 }
@@ -476,19 +878,22 @@ body {
 .lab-left, .lab-right { padding: 20px; }
 */
 @media (min-width: 900px) {
+
   .lab-left,
   .lab-right {
-    min-width: 400px; /* שני הצדדים לא יצטמצמו מתחת לערך הזה */
+    min-width: 400px;
+    /* שני הצדדים לא יצטמצמו מתחת לערך הזה */
   }
 }
+
 .lab-console {
-  background: rgba(0,0,0,0.65);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(0, 0, 0, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 16px;
   font-family: 'Fira Code', monospace;
   color: #f3f3f3;
-  box-shadow: 0 0 15px rgba(179,139,94,0.3);
+  box-shadow: 0 0 15px rgba(179, 139, 94, 0.3);
   overflow: hidden;
 }
 
@@ -496,19 +901,31 @@ body {
   margin: 8px 0;
   padding: 10px 14px;
   border-radius: 8px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.05);
   display: flex;
   align-items: center;
   gap: 10px;
   animation: fadeIn 0.5s ease forwards;
 }
 
-.lab-step.pass { border-left: 4px solid #4caf50; }
-.lab-step.fail { border-left: 4px solid #e53935; }
+.lab-step.pass {
+  border-left: 4px solid #4caf50;
+}
+
+.lab-step.fail {
+  border-left: 4px solid #e53935;
+}
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateX(-15px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .lab-progress {
@@ -516,7 +933,7 @@ body {
   height: 14px;
   margin-top: 14px;
   border-radius: 10px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.1);
   overflow: hidden;
 }
 
@@ -524,75 +941,104 @@ body {
   height: 100%;
   width: 0%;
   border-radius: 10px;
-  background: linear-gradient(270deg,#4caf50,#b38b5e,#4caf50);
+  background: linear-gradient(270deg, #4caf50, #b38b5e, #4caf50);
   background-size: 400% 400%;
   animation: gradientFlow 6s ease infinite;
   transition: width 0.4s ease;
 }
 
 @keyframes gradientFlow {
-  0%   { background-position: 0% 50% }
-  50%  { background-position: 100% 50% }
-  100% { background-position: 0% 50% }
+  0% {
+    background-position: 0% 50%
+  }
+
+  50% {
+    background-position: 100% 50%
+  }
+
+  100% {
+    background-position: 0% 50%
+  }
 }
 
 /* ✨ מד עגול (Gauge) ניאון עתידני */
 .lab-gauge-wrap {
-  width: 180px; /* רוחב כולל של הקומפוננטה */
-  height: 180px; /* גובה כולל */
+  width: 180px;
+  /* רוחב כולל של הקומפוננטה */
+  height: 180px;
+  /* גובה כולל */
   margin: 20px auto 0;
   position: relative;
-  display: flex; /* כדי למרכז את ה-SVG והטקסט */
+  display: flex;
+  /* כדי למרכז את ה-SVG והטקסט */
   justify-content: center;
   align-items: center;
 }
+
 /* === 🆕 שדרוג multi-ring למד הקיים === */
 /* ... (הקוד שלך לפני, עד איפה שמתחיל ה-gauge) ... */
 
 /* ✨ מד עגול (Gauge) ניאון עתידני */
 .lab-gauge-wrap {
-  width: 180px; /* רוחב כולל של הקומפוננטה */
-  height: 180px; /* גובה כולל */
+  width: 180px;
+  /* רוחב כולל של הקומפוננטה */
+  height: 180px;
+  /* גובה כולל */
   margin: 20px auto 0;
   position: relative;
-  display: flex; /* כדי למרכז את ה-SVG והטקסט */
+  display: flex;
+  /* כדי למרכז את ה-SVG והטקסט */
   justify-content: center;
   align-items: center;
 }
 
 .lab-gauge {
   position: relative;
-  width: 100%; /* תופס את כל הרוחב של ה-wrap */
-  height: 100%; /* תופס את כל הגובה של ה-wrap */
+  width: 100%;
+  /* תופס את כל הרוחב של ה-wrap */
+  height: 100%;
+  /* תופס את כל הגובה של ה-wrap */
   border-radius: 50%;
   background: radial-gradient(circle at center,
-      rgba(0, 0, 0, 0.7) 0%, /* מרכז שחור יותר */
-      rgba(0, 0, 0, 0.9) 70%); /* קצוות כהים יותר */
-  overflow: hidden; /* לוודא שהזוהר לא יוצא מגבולות */
+      rgba(0, 0, 0, 0.7) 0%,
+      /* מרכז שחור יותר */
+      rgba(0, 0, 0, 0.9) 70%);
+  /* קצוות כהים יותר */
+  overflow: hidden;
+  /* לוודא שהזוהר לא יוצא מגבולות */
   box-shadow:
-    0 0 20px rgba(0, 246, 255, 0.8), /* תכלת */
-    0 0 40px rgba(0, 255, 127, 0.8), /* ירוק */
-    0 0 60px rgba(157, 0, 255, 0.8); /* סגול */
+    0 0 20px rgba(0, 246, 255, 0.8),
+    /* תכלת */
+    0 0 40px rgba(0, 255, 127, 0.8),
+    /* ירוק */
+    0 0 60px rgba(157, 0, 255, 0.8);
+  /* סגול */
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .lab-gauge svg {
-  position: absolute; /* מיקום מוחלט בתוך ה-gauge */
+  position: absolute;
+  /* מיקום מוחלט בתוך ה-gauge */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  transform: rotate(-90deg); /* מתחיל את ההתקדמות מלמעלה */
-  z-index: 1; /* מעל רקע ה-gauge */
+  transform: rotate(-90deg);
+  /* מתחיל את ההתקדמות מלמעלה */
+  z-index: 1;
+  /* מעל רקע ה-gauge */
 }
 
 /* סגנונות כלליים למעגלים ב-SVG */
 .lab-gauge svg circle {
-  fill: transparent; /* המעגלים עצמם שקופים */
-  stroke-width: 8px; /* עובי הטבעת */
-  stroke-linecap: round; /* קצוות מעוגלים לטבעות */
+  fill: transparent;
+  /* המעגלים עצמם שקופים */
+  stroke-width: 8px;
+  /* עובי הטבעת */
+  stroke-linecap: round;
+  /* קצוות מעוגלים לטבעות */
   transition: stroke-dasharray 0.7s ease-out, stroke 0.3s ease-in-out;
 }
 
@@ -600,44 +1046,56 @@ body {
 .lab-gauge svg .gauge-bg-outer,
 .lab-gauge svg .gauge-bg-middle,
 .lab-gauge svg .gauge-bg-inner {
-  stroke: rgba(255, 255, 255, 0.15); /* צבע רקע עדין לכל הטבעות */
+  stroke: rgba(255, 255, 255, 0.15);
+  /* צבע רקע עדין לכל הטבעות */
 }
 
 /* טבעות ההתקדמות – צבעוניות וזוהרות */
 .lab-gauge svg .gauge-meter-outer {
-  stroke: url(#gradient1); /* משתמש בגרדיאנט שהגדרנו ב-HTML */
-  filter: drop-shadow(0 0 8px #00f6ff) drop-shadow(0 0 15px #00ff7f); /* זוהר תכלת וירוק */
+  stroke: url(#gradient1);
+  /* משתמש בגרדיאנט שהגדרנו ב-HTML */
+  filter: drop-shadow(0 0 8px #00f6ff) drop-shadow(0 0 15px #00ff7f);
+  /* זוהר תכלת וירוק */
 }
 
 .lab-gauge svg .gauge-meter-middle {
   stroke: url(#gradient2);
-  filter: drop-shadow(0 0 8px #00ff7f) drop-shadow(0 0 15px #9d00ff); /* זוהר ירוק וסגול */
-  stroke-width: 6px; /* טבעת אמצעית מעט דקה יותר */
+  filter: drop-shadow(0 0 8px #00ff7f) drop-shadow(0 0 15px #9d00ff);
+  /* זוהר ירוק וסגול */
+  stroke-width: 6px;
+  /* טבעת אמצעית מעט דקה יותר */
 }
 
 .lab-gauge svg .gauge-meter-inner {
   stroke: url(#gradient3);
-  filter: drop-shadow(0 0 8px #9d00ff) drop-shadow(0 0 15px #00f6ff); /* זוהר סגול ותכלת */
-  stroke-width: 4px; /* טבעת פנימית דקה ביותר */
+  filter: drop-shadow(0 0 8px #9d00ff) drop-shadow(0 0 15px #00f6ff);
+  /* זוהר סגול ותכלת */
+  stroke-width: 4px;
+  /* טבעת פנימית דקה ביותר */
 }
 
 /* טקסט אחוזים – מרכז ומעצב אותו */
 .lab-gauge-text {
-  position: relative; /* ימוקם בתוך ה-flex container של .lab-gauge */
+  position: relative;
+  /* ימוקם בתוך ה-flex container של .lab-gauge */
   font-family: 'Cinzel Decorative', serif;
-  font-size: 36px; /* גודל גדול יותר */
+  font-size: 36px;
+  /* גודל גדול יותר */
   font-weight: bold;
-  color: #f3f3f3; /* צבע לבן */
+  color: #f3f3f3;
+  /* צבע לבן */
   text-shadow:
     0 0 8px rgba(0, 246, 255, 0.7),
     0 0 15px rgba(0, 255, 127, 0.7),
-    0 0 25px rgba(157, 0, 255, 0.7); /* זוהר ניאוני לטקסט */
-  z-index: 2; /* מעל ה-SVG */
+    0 0 25px rgba(157, 0, 255, 0.7);
+  /* זוהר ניאוני לטקסט */
+  z-index: 2;
+  /* מעל ה-SVG */
 }
 
 /* ... (שאר הקוד שלך אחרי) ... */
 #labCode {
-  background: rgba(0,0,0,0.4);
+  background: rgba(0, 0, 0, 0.4);
   padding: 16px;
   border-radius: 8px;
   font-family: 'Fira Code', monospace;
@@ -654,70 +1112,145 @@ body {
   color: #000;
 }
 
-.w3-camel:hover { background-color: #ddb180; }
+.w3-camel:hover {
+  background-color: #ddb180;
+}
 
 /* ===== Playground Tabs & Controls ===== */
-.lab-tabs { display:flex; gap:8px; margin-bottom:10px; }
+.lab-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
 .lab-tab {
-  background: rgba(255,255,255,0.08);
-  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 10px;
   padding: 8px 12px;
-  color:#f3f3f3; cursor:pointer;
+  color: #f3f3f3;
+  cursor: pointer;
   backdrop-filter: blur(2px);
   transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
 }
-.lab-tab:hover { transform: translateY(-1px); box-shadow: 0 0 10px rgba(179,139,94,.25); }
-.lab-tab.is-active { border-color:#b38b5e; box-shadow: 0 0 12px rgba(179,139,94,.35) inset; }
 
-.lab-controls { display:flex; align-items:center; gap:12px; margin:8px 0 12px; }
-.lab-toggle { display:flex; align-items:center; gap:6px; font-size:13px; opacity:.9; }
+.lab-tab:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 0 10px rgba(179, 139, 94, .25);
+}
+
+.lab-tab.is-active {
+  border-color: #b38b5e;
+  box-shadow: 0 0 12px rgba(179, 139, 94, .35) inset;
+}
+
+.lab-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 8px 0 12px;
+}
+
+.lab-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  opacity: .9;
+}
 
 /* typewriter intro inside console */
-.lab-typewriter { min-height: 22px; white-space: nowrap; overflow: hidden; border-right: 2px solid #b38b5e; }
+.lab-typewriter {
+  min-height: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid #b38b5e;
+}
 
 /* Cards container (right) */
-.lab-cards { display:grid; grid-template-columns: 1fr; gap:10px; margin-bottom:12px; }
-@media (min-width: 640px){ .lab-cards { grid-template-columns: 1fr 1fr; } }
+.lab-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 640px) {
+  .lab-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 .lab-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   padding: 12px;
-  color:#f3f3f3;
-  box-shadow: 0 0 12px rgba(179,139,94,0.2);
+  color: #f3f3f3;
+  box-shadow: 0 0 12px rgba(179, 139, 94, 0.2);
   animation: fadeIn .4s ease forwards;
 }
-.lab-card.pass { border-left: 4px solid #4caf50; }
-.lab-card.fail { border-left: 4px solid #e53935; }
-.lab-card .title { display:flex; align-items:center; gap:8px; font-weight:700; }
-.lab-card .meta { font-size:12px; opacity:.85; margin-top:6px; }
-.lab-card .details { margin-top:8px; font-size:13px; opacity:.95; }
+
+.lab-card.pass {
+  border-left: 4px solid #4caf50;
+}
+
+.lab-card.fail {
+  border-left: 4px solid #e53935;
+}
+
+.lab-card .title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.lab-card .meta {
+  font-size: 12px;
+  opacity: .85;
+  margin-top: 6px;
+}
+
+.lab-card .details {
+  margin-top: 8px;
+  font-size: 13px;
+  opacity: .95;
+}
 
 /* tiny “visual diff” badge */
 .badge {
-  display:inline-block; padding:2px 8px; font-size:11px;
-  border-radius:999px; background:rgba(179,139,94,0.18); border:1px solid rgba(179,139,94,0.45);
-  margin-left:6px; letter-spacing:.3px;
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 11px;
+  border-radius: 999px;
+  background: rgba(179, 139, 94, 0.18);
+  border: 1px solid rgba(179, 139, 94, 0.45);
+  margin-left: 6px;
+  letter-spacing: .3px;
 }
+
 /* ✅ שינוי – מסגרת כחול ניאון קיצונית לשדה הבחירה */
 #labType {
-  border: 2px solid #00f6ff;               /* קו כחול ניאון בסיסי */
+  border: 2px solid #00f6ff;
+  /* קו כחול ניאון בסיסי */
   border-radius: 10px;
-  background-color: rgba(0,0,0,0.35);      /* רקע כהה חצי שקוף לשמירת אפקט הזוהר */
+  background-color: rgba(0, 0, 0, 0.35);
+  /* רקע כהה חצי שקוף לשמירת אפקט הזוהר */
   color: #f3f3f3;
   padding: 8px 12px;
   font-family: 'Fira Code', monospace;
   font-size: 16px;
+  margin-right: 12px;
+  /* זה מספיק לייצר רווח מהכפתור */
 
   /* ✨ אפקט זוהר קיצוני – הרבה שכבות */
   box-shadow:
-    0 0 6px  #00f6ff,
-    0 0 12px  #00f6ff,
-    0 0 20px  #00f6ff,
-    0 0 28px  #00f6ff,
-    0 0 9px  #00f6ff;
+    0 0 6px #00f6ff,
+    0 0 12px #00f6ff,
+    0 0 20px #00f6ff,
+    0 0 28px #00f6ff,
+    0 0 9px #00f6ff;
   transition: box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
@@ -726,45 +1259,52 @@ body {
 #labType:focus {
   border-color: #00ffff;
   box-shadow:
-    0 0 8px  #00ffff,
-    0 0 16px  #00ffff,
-    0 0 24px  #00ffff,
+    0 0 8px #00ffff,
+    0 0 16px #00ffff,
+    0 0 24px #00ffff,
     0 0 32px #00ffff,
     0 0 13px #00ffff;
   outline: none;
 }
+
 /* ✅ שינוי – מסגרת ירוק ניאון קיצונית לשדות Passed */
 .lab-step.pass,
 .lab-card.pass {
-  border: 2px solid #00ff7f;  /* ירוק ניאון בסיסי */
-  border-left-width: 4px;     /* שומר את ה-strip השמאלי */
+  border: 2px solid #00ff7f;
+  /* ירוק ניאון בסיסי */
+  border-left-width: 4px;
+  /* שומר את ה-strip השמאלי */
   box-shadow:
-    0 0 6px  #00ff7f,
-    0 0 12px  #00ff7f,
-    0 0 20px  #00ff7f,
-    0 0 28px  #00ff7f,
-    0 0 9px  #00ff7f;
+    0 0 6px #00ff7f,
+    0 0 12px #00ff7f,
+    0 0 20px #00ff7f,
+    0 0 28px #00ff7f,
+    0 0 9px #00ff7f;
 }
 
 /* ✅ שינוי – מסגרת אדום ניאון קיצונית לשדות Failed */
 .lab-step.fail,
 .lab-card.fail {
-  border: 2px solid #ff0033;  /* אדום ניאון בסיסי */
+  border: 2px solid #ff0033;
+  /* אדום ניאון בסיסי */
   border-left-width: 4px;
   box-shadow:
-    0 0 6px  #ff0033,
-    0 0 12px  #ff0033,
-    0 0 20px  #ff0033,
-    0 0 28px  #ff0033,
-    0 0 9px  #ff0033;
+    0 0 6px #ff0033,
+    0 0 12px #ff0033,
+    0 0 20px #ff0033,
+    0 0 28px #ff0033,
+    0 0 9px #ff0033;
 }
+
 /* 🎯 Fine-tune – הזזה שמאלה רק לתוכן הפנימי של הסקשנים */
 #qa-journey .w3-row-padding {
-  margin-left: -30px;   /* תזוזה שמאלה לתוכן */
+  margin-left: -30px;
+  /* תזוזה שמאלה לתוכן */
 }
 
 #experiment-lab .lab-flex {
-  margin-left: -30px;   /* תזוזה שמאלה לתוכן */
+  margin-left: -30px;
+  /* תזוזה שמאלה לתוכן */
 }
 
 .e2e-progress {
@@ -805,12 +1345,111 @@ body {
 
 .final {
   font-weight: bold;
-  color: #4caf50; /* ירוק ל-PASS */
+  color: #4caf50;
+  /* ירוק ל-PASS */
 }
 
 .final.fail {
-  color: #f44336; /* אדום ל-FAIL */
+  color: #f44336;
+  /* אדום ל-FAIL */
 }
+
+/* שדות ניאון ורודים */
+#demoName,
+#demoEmail {
+  background-color: #000;
+  /* רקע כהה בשביל ניגודיות */
+  color: #ff00ff;
+  /* טקסט ורוד ניאון */
+  border: 2px solid #ff00ff;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 16px;
+
+  /* זוהר ניאון חזק */
+  box-shadow:
+    0 0 5px #ff00ff,
+    0 0 15px #ff00ff,
+    0 0 30px #ff00ff,
+    0 0 60px #ff00ff;
+
+  transition: all 0.3s ease-in-out;
+}
+
+/* אפקט חזק יותר במעבר עכבר / פוקוס */
+#demoName:focus,
+#demoEmail:focus {
+  outline: none;
+  box-shadow:
+    0 0 10px #ff00ff,
+    0 0 25px #ff00ff,
+    0 0 50px #ff00ff,
+    0 0 100px #ff00ff;
+}
+
+#experiment-lab .w3-camel {
+  display: block;
+  margin-top: 12px;
+}
+
+/* ✨ Glassmorphism Button – Run E2E Test NOT SPECIAL AT ALL */
+/* ✨ Gradient Hover Button – Run E2E Test-AMAZINGLY SPECIAL */
+/* ✨ Neon Glow Button – Run E2E Test-AMAZIGLY SPECIAL BUT MUST CHANGE THE COLOR */
+/* ✨ Border Animation Button – Run E2E Test JUST WOW */
+/* ✨ 3D Pressed Button – Run E2E Test NOT SPECIAL AT ALL */
+/* ✨ Ripple Effect Button – Run E2E Test NOT SPECIAL AT ALL */
+/* ✨ Icon Button – Run E2E Test NICE AND PRITY SPECIAL */
+#e2e-demo #runTestBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;                           /* רווח בין האייקון לטקסט */
+  background: #222;                   /* רקע כהה */
+  color: #fff;
+  border: 2px solid #00f6ff;          /* גבול ניאון */
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 0 0 6px #00f6ff, 0 0 12px #00f6ff;  /* אפקט ניאון לטקסט */
+  box-shadow: 0 0 8px #00f6ff, 0 0 20px #00f6ff inset;
+}
+
+#e2e-demo #runTestBtn:hover {
+  background: #00f6ff;
+  color: #000;
+  text-shadow: none;
+  box-shadow: 0 0 12px #00f6ff, 0 0 24px #00f6ff;
+}
+
+#e2e-demo #runTestBtn i {
+  font-size: 18px;    /* גודל האייקון */
+}
+/* === מיקום השדה חיפוש המיוחד בפינה הימנית העליונה === */
+.search-wrapper {
+  position: fixed;
+  top: 15px;      /* בדיוק בקו האייקונים */
+  right: 5px;    /* קצת מרווח מהקצה */
+  z-index: 1000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

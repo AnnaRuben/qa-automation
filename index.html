@@ -8,40 +8,63 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:ital@1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-  <!-- Navbar (sit on top) -->
-  <div class="w3-top">
-    <div class="w3-bar" id="myNavbar">
-      <a class="w3-bar-item w3-button w3-hover-black w3-hide-medium w3-hide-large w3-right" href="javascript:void(0);" onclick="toggleFunction()" title="Toggle Navigation Menu">
-        <i class="fa fa-bars"></i>
-      </a>
-      <a href="#home" class="w3-bar-item w3-button">HOME</a>
-      <a href="#about" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-user"></i> ABOUT</a>
-      <a href="#portfolio" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-th"></i> PORTFOLIO</a>
-      <a href="#contact" class="w3-bar-item w3-button w3-hide-small"><i class="fa fa-envelope"></i> CONTACT</a>
+<body> 
+<!-- ✅ Search field new -->
+<div class="search-wrapper">
+  <div id="poda">
+    <div class="grid"></div>
+    <div class="white"></div>
+    <div class="border"></div>
+    <div class="darkBorderBg"></div>
+    <div class="glow"></div>
+    <div id="main">
+      <i id="search-icon" class="fa fa-search"></i>
+      <input type="text" class="input" placeholder="Search...">
+      <div id="input-mask"></div>
+      <div id="pink-mask"></div>
+    </div>
+    <div id="filter-icon">
+      <i class="fa fa-filter"></i>
+    </div>
+    <div class="filterBorder"></div>
+  </div>
+</div>
 
-      <!-- Search Component -->
-      <div class="search-container w3-bar-item w3-right w3-hide-small" id="searchContainer">
-        <input type="text" id="searchInput" placeholder="חיפוש..." autocomplete="off" aria-label="Search">
-        <span id="searchCount" style="margin-left:8px;font-weight:bold;"></span>
-        <button onclick="toggleSearch()" class="search-btn" title="חיפוש" aria-label="Toggle Search">
-          <i class="fa fa-search"></i>
-        </button>
+<!-- ✅ Navbar Icons -->
+<div class="container">
+  <div class="content">
+    <h1></h1>
+    <!-- הוספתי class="icon-bar" -->
+    <div class="icon-container icon-bar">
+      <div class="icon icon-fill">
+        <i class="fa fa-home"></i>
+      </div>
+      <div class="icon icon-enter">
+        <i class="fa fa-user"></i>
+      </div>
+      <div class="icon icon-expand">
+        <i class="fa fa-bars"></i>
+      </div>
+      <div class="icon icon-collapse">
+        <i class="fas fa-sign-in-alt"></i>
+      </div>
+      <div class="icon icon-rotate">
+        <i class="fa fa-phone"></i>
       </div>
     </div>
-    <!-- ✅ סוגר את .search-container -->
+  </div>
+</div>
 
     <!-- Navbar on small screens -->
     <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium">
-      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">ABOUT</a>
-      <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">PORTFOLIO</a>
-      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">CONTACT</a>
-      <a href="#" class="w3-bar-item w3-button">SEARCH</a>
+      <a href="#about" class="w3-bar-item w3-button" onclick="toggleFunction()">🤷 ABOUT</a>
+      <a href="#portfolio" class="w3-bar-item w3-button" onclick="toggleFunction()">🖼️ PORTFOLIO</a>
+      <a href="#contact" class="w3-bar-item w3-button" onclick="toggleFunction()">📫 CONTACT</a>
     </div>
   </div>
 
@@ -214,7 +237,7 @@
             <!-- ✨ CHANGED: הסרתי "w3-col m6" גם כאן -->
             <div class="lab-right">
               <div class="lab-cards" id="labCards"></div>
-              <pre><code class="language-js" id="labCode"> // Tests run in your browser. Suites: smoke, ui, regression. // Watch steps animate like a CI dashboard. Visual-diff card included. </code></pre>
+              <pre><code class="language-js" id="labCode"> // Tests run in your browser. Suites: smoke, ui, regression. // Watch steps animate like a CI dashboard. Visual diff card included. </code></pre>
             </div>
           </div>
         </section>
